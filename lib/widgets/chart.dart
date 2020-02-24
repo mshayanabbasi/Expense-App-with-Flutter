@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
-  Chart(this.recentTransactions);
+  Chart(this.recentTransactions) {
+    print('Constructor Chart');
+  }
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
@@ -20,8 +22,8 @@ class Chart extends StatelessWidget {
           totalSum += recentTransactions[i].amount;
         }
       }
-      print(DateFormat.E().format(weekday));
-      print(totalSum);
+      // print(DateFormat.E().format(weekday));
+      // print(totalSum);
       return {
         'day': DateFormat.E().format(weekday).substring(0, 1),
         'amount': totalSum
@@ -33,11 +35,11 @@ class Chart extends StatelessWidget {
     return groupedTransactionValues.fold(0.0, (sum, item) {
       return sum + item['amount'];
     });
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {
-    print(groupedTransactionValues);
+    print('build() Chart');
     return  Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
