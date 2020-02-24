@@ -65,7 +65,7 @@ class __MyHomePageState extends State<_MyHomePage> {
   }
 
   void _addNewTransaction(
-      String txTitle, double txAmount, DateTime chosenDate) {
+    String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
@@ -98,6 +98,7 @@ class __MyHomePageState extends State<_MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build() MyHomePage');
     final mediaQuery = MediaQuery.of(context);
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final PreferredSizeWidget appBar = Platform.isIOS
